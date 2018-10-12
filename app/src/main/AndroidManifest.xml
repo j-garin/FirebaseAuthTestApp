@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		package="com.jgarin.authtest.firebaseauthtestapp"
+		>
+
+	<uses-permission android:name="android.permission.INTERNET"/>
+
+	<application
+			android:allowBackup="true"
+			android:icon="@mipmap/ic_launcher"
+			android:label="@string/app_name"
+			android:roundIcon="@mipmap/ic_launcher_round"
+			android:supportsRtl="true"
+			android:theme="@style/AppTheme"
+			>
+		<activity
+				android:name=".MainActivity"
+				android:screenOrientation="portrait"
+				>
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".ProcessLoginActivity"
+				android:screenOrientation="portrait"
+				android:launchMode="singleTask"
+				>
+
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<data
+						android:scheme="https"
+						android:host="firebaseauthtest123.page.link"
+						android:pathPrefix="/vemail"
+						/>
+				<!--remove pathPrefix and interception will work, as there's no prefix in email link-->
+				<!--my project has multiple links in one domain and i want to handle them in multiple activities-->
+				<!--how can i set up intent filters to make it happen?-->
+			</intent-filter>
+		</activity>
+	</application>
+
+</manifest>
