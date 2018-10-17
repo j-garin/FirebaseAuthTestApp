@@ -2,6 +2,7 @@ package com.jgarin.authtest.firebaseauthtestapp
 
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -14,6 +15,8 @@ class ProcessLoginActivity: AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_login)
+
+		Log.d("intercept", "Login intent intercepted in ${this.javaClass.simpleName}")
 
 		val email = PreferenceManager.getDefaultSharedPreferences(this)
 			.getString(EMAIL_PREFS_KEY, null) ?: throw IllegalStateException("email not saved")

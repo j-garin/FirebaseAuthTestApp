@@ -39,12 +39,26 @@
 				<data
 						android:scheme="https"
 						android:host="firebaseauthtest123.page.link"
-						android:pathPrefix="/vemail"
 						/>
-				<!--remove pathPrefix and interception will work, as there's no prefix in email link-->
-				<!--my project has multiple links in one domain and i want to handle them in multiple activities-->
-				<!--how can i set up intent filters to make it happen?-->
 			</intent-filter>
+		</activity>
+		<activity
+				android:name=".SameIntentFilterActivity"
+				android:screenOrientation="portrait"
+				android:launchMode="singleTask"
+				>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<data
+						android:scheme="https"
+						android:host="firebaseauthtest123.page.link"
+						/>
+			</intent-filter>
+
 		</activity>
 	</application>
 
